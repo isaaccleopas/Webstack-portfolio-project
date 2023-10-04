@@ -39,7 +39,7 @@ authController.post('/login', async (req, res) => {
     const { password, ...others } = user._doc
     const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, { expiresIn: '5h' })
 
-    return res.status(200).json({ ...others, password });
+    return res.status(200).json({ ...others, token });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

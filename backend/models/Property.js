@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 
-
 const reviewSchema = new mongoose.Schema({
   rating: {
     type: Number,
@@ -61,12 +60,14 @@ const propertySchema = new mongoose.Schema({
     required: function () {
       return this.propertyType === 'Land';
     },
+  },
   createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Types.ObjectId,
     ref: 'User',
+    required: true,
   },
   reviews: [reviewSchema],
-} {timestamps: true});
+}, { timestamps: true });
 
 const Property = mongoose.model('Property', propertySchema);
 
