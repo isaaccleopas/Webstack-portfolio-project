@@ -122,14 +122,18 @@ propertyController.put('/:propertyId', verifyToken, async (req, res) => {
 // delete an estate
 propertyController.delete('/:propertyId', verifyToken, async (req, res) => {
   try {
-    const property = await Property.findById(req.params.id);
-    if (property.createdBy.toString() !== req.user.id) {
-      throw new Error("You are not allowed to delete other people's property");
-    } else {
-      await property.delete();
+    const property = await Property.findById(req.params.propertyId);
 
-      return res.status(200).json({ msg: 'Successfully deleted property' });
+    if (!property) {
+      return res.status(404).json({ message: 'Property not found' });
     }
+
+    if (property.createdBy.toString() !== req.user.id) {
+      return res.status(403).json({ message: "You are not allowed to delete other people's property" });
+    }
+
+    await Property.deleteOne({ _id: req.params.propertyId });
+    return res.status(200).json({ message: 'Successfully deleted property' });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
