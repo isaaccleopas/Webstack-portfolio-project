@@ -35,6 +35,36 @@ propertyController.get('/counts', async (req, res) => {
   }
 });
 
+// Advanced property search
+propertyController.get('/advanced', async (req, res) => {
+  try {
+    const { propertyType, category, minPrice, maxPrice } = req.query;
+    const filter = {};
+
+    if (propertyType) {
+      filter.propertyType = propertyType;
+    }
+
+    if (category) {
+      filter.category = category;
+    }
+
+    if (minPrice && maxPrice) {
+      filter.price = { $gte: minPrice, $lte: maxPrice };
+    } else if (minPrice) {
+      filter.price = { $gte: minPrice };
+    } else if (maxPrice) {
+      filter.price = { $lte: maxPrice };
+    }
+
+    const properties = await Property.find(filter);
+
+    return res.status(200).json(properties);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 // get individual property
 propertyController.get('/:propertyId', async (req, res) => {
   const { propertyId } = req.params;
