@@ -1,6 +1,22 @@
 const Property = require('../models/Property');
 const propertyController = require('express').Router();
 const verifyToken = require('../middlewares/verifyToken');
+const multer = require('multer');
+const path = require('path');
+
+
+// Set up storage for multer
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, '../uploads'));
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+  },
+});
+
+const upload = multer({ storage });
 
 // get all
 propertyController.get('/', async (req, res) => {
@@ -115,9 +131,18 @@ propertyController.post('/:propertyId/reviews', verifyToken, async (req, res) =>
 });
 
 // create an estate
-propertyController.post('/', verifyToken, async (req, res) => {
+propertyController.post('/', verifyToken, upload.array('images', 5), async (req, res) => {
   try {
-    const newProperty = await Property.create({ ...req.body, createdBy: req.user.id });
+    const imageUrls = req.files.map((file) => {
+      return `/uploads/${file.filename}`;
+    });
+
+    const newProperty = await Property.create({
+      ...req.body,
+      createdBy: req.user.id,
+      images: imageUrls,
+    });
+
     return res.status(201).json(newProperty);
   } catch (error) {
     return res.status(500).json({ error: error.message });
@@ -164,6 +189,19 @@ propertyController.delete('/:propertyId', verifyToken, async (req, res) => {
 
     await Property.deleteOne({ _id: req.params.propertyId });
     return res.status(200).json({ message: 'Successfully deleted property' });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+// upload image
+propertyController.post('/upload', verifyToken, upload.array('images', 5), async (req, res) => {
+  try {
+    const imageUrls = req.files.map((file) => {
+      return `/uploads/${file.filename}`;
+    });
+
+    return res.status(200).json({ imageUrls });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
