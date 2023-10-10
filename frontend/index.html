@@ -1,0 +1,278 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="css/custom.css" />
+        <title>IDL</title>
+    </head>
+    <!-- main-contents -->
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light py-4">
+            <div class="container-xl">
+                <a class="navbar-brand" href="#">I&D Properties</a>
+                <button
+                    class="navbar-toggler d-lg-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mobileMenu">
+                    <ul
+                        class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-md-center"
+                    >
+                        <li class="nav-item navList">
+                            <a class="nav-link active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#">Listings</a>
+                        </li>
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#">Stats</a>
+                        </li>
+                        <li class="nav-item px-md-3">
+                            <a href="" class="btn btn-primary nav-link px-5"
+                                >Sign Up</a
+                            >
+                        </li>
+                        <li class="nav-item mt-3 mt-sm-3 mt-md-0">
+                            <a href="" class="btn border nav-link px-5"
+                                >Sign in</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End of nav section -->
+        <!-- he -->
+        <section class="showcase">
+            <div
+                id="homecarousel"
+                class="con container-fluid carousel slide p-0"
+                data-bs-ride="carousel"
+            >
+                <ol class="carousel-indicators">
+                    <li
+                        data-bs-target="#homecarousel"
+                        data-bs-slide-to="0"
+                        class="active"
+                    ></li>
+                    <li data-bs-target="#homecarousel" data-bs-slide-to="1"></li>
+                </ol>
+
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div
+                            class="carousel-caption d-flex flex-column h-100 text-white top:0 align-items-start justify-content-center"
+                        >
+                            <h1 class="display-3 text-uppercase"
+                                >Find Your Dream Home</h1
+                            >
+                            <p class="text-center text-md-start lead">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Expedita aspernature tenetur
+                                accusamus. Esse neque, alias quo est totam fugit
+                                atque inventore officiis pariatur maiores
+                                delectus eligendi quos minus reiciendis quod?
+                            </p>
+                        </div>
+                        <img
+                            src="./img/estate_bg4.jpg"
+                            class="w-100 d-block image-fluid"
+                            alt="First slide"
+                        />
+                    </div>
+                    <div class="carousel-item">
+                        <div
+                            class="carousel-caption d-flex flex-column h-100 text-white top:0 align-items-start justify-content-center"
+                        >
+                            <h1 class="display-md-6 display-3 text-uppercase"
+                                >Find Your Dream Home</h1
+                            >
+                            <p class="text-center text-md-start lead">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Expedita aspernature tenetur
+                                accusamus. Esse neque, alias quo est totam fugit
+                                atque inventore officiis pariatur maiores
+                                delectus eligendi quos minus reiciendis quod?
+                            </p>
+                        </div>
+                        <img
+                            src="./img/estate_bg3.jpg"
+                            class="w-100 d-block"
+                            alt="Second slide"
+                        />
+                    </div>
+                </div>
+                <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#homecarousel"
+                    data-bs-slide="prev"
+                >
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#homecarousel"
+                    data-bs-slide="next"
+                >
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <div class="overlay"></div>
+        </section>
+        <!-- End of showcase -->
+
+        <!-- Search form -->
+        <section class="advanceSearch section">
+            <div class="container-lg">
+                <!-- tabs -->
+                <div class="tabs">
+                    <span class="tab tab-border" id="tab-1">Sales</span>
+                    <span class="tab bg-primary text-light" id="tab-2">Rental</span>
+                    <span class="tab" id="tab-3">Sold</span>
+                </div>
+                <!-- sales search handler -->
+                <form action="" class="tab-content m-auto p-4 show rounded-2" id="Sales"">
+                    <div class="mb-3">
+                    <label for="" class="form-label"></label>
+                    <select class="form-select form-select-lg" name="" id="">
+                        <option selected>Property Catergories</option>
+                        <option value="">Houses</option>
+                        <option value="">Land</option>
+                        <option value="">Flat/Apartment</option>
+                        <option value="">Commercial Property</option>
+                    </select>
+                </div>
+                    <div class="row">
+                    <div class="mb-3 col-6">
+                      <label for="square-meter" class="form-label">Square Meter</label>
+                      <input type="text" name="square-meter" id="square-meter" class="form-control py-2" placeholder="SQM">
+                    </div>
+                    
+                    <div class="mb-3 col-6">
+                      <label for="max-price" class="form-label">Max Price</label>
+                      <input type="text" name="price" id="max-price" class="form-control py-2" placeholder="000000">
+                    </div>
+                    </div>
+                <button type="submit" class="btn btn-primary w-100 p-3">Search</button>
+                </form>
+            </div>
+        </section>
+        <!-- End of Search Section -->
+        <section class="listings section bg-light">
+            <div class="container-lg py-5">
+                <div class="list-head text-center">
+                    <h3 class="listhead display-3">
+                        Listed Properties
+                    </h3>
+                    <p class="listTxt">
+                        Find your dream home.
+                    </p>
+                </div>
+            <div class="row w-100 m-auto justify-content-center gap-2">
+                <div class="col-md-5 col-sm-12">
+                    <div class="card">
+                        <a href=""><img class="card-img-top" src="./img/estate_bg2.jpg" alt="Title"></a>
+                    
+                    <div class="card-body p-0">
+                        <h4 class="list-title display-5 px-3 pt-3">Cederwood City</h4>
+                        <p class="card-text px-3 py-2">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, consectetur accusantium ad perferendis esse qui!
+                        </p>
+                        <p class="card-text px-3 py-1 display-6">
+                           Price:$500,000
+                        </p>
+                         <div class="d-flex bg-light justify-content-evenly">
+                        <div class="border-end py-3 px-2"><small>Beedroom</small></div>
+                        <div class="border-start py-3 px-2"><small>Restroom</small></div>
+                    </div>
+                    </div>
+                </div>
+                
+                </div>
+                <div class="col-md-5 col-sm-12">
+                    <div class="card">
+                    <img class="card-img-top" src="./img/estate_bg3.jpg" alt="Title">
+                    <div class="card-body p-0">
+                        <h4 class="list-title display-5 px-3 pt-3">Cederwood City</h4>
+                        <p class="card-text px-3 py-2">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, consectetur accusantium ad perferendis esse qui!
+                        </p>
+                        <p class="card-text px-3 py-1 display-6">
+                           Price:$500,000
+                        </p>
+                         <div class="d-flex bg-light justify-content-evenly">
+                        <div class="border-end py-3 px-2"><small>Beedroom</small></div>
+                        <div class="border-start py-3 px-2"><small>Restroom</small></div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        <!-- End of listings section -->
+        <!-- About section -->
+        <section class="about section">
+            <div class="container-lg text-center py-5">
+                <div class="row gap-2 gap-lg-0 m-auto justify-content-center">
+                    <div class="col-md-5 col-sm-12 rounded-2">
+                        <img src="./img/estate_bg4.jpg" alt="" class="image-fluid rounded-2">
+                    </div>
+                    <div class="col-md-5 col-sm-12 order-1 align-self-center">
+                        <h3 class="about-title display-4">Who we are</h3>
+                <p class="about lead">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum eos iure ipsa minus consectetur libero asperiores minima inventore, necessitatibus soluta error nobis quidem fuga obcaecati illum tempora in dignissimos quia.
+                </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of about section -->
+        <!-- Stats section -->
+        <section class="stats bg-light">
+            <div class="container py-5">
+                <div class="stats-content text-center my-3">
+                    <h3 class="display-4">Stats</h3>
+                </div>
+                <div class="row m-auto justify-content-center align-items-center">
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <h4 class="display-6 py-5">Agents</h4>
+                            <div class="rounded-circle border border-2 border-primary d-flex justify-content-center align-items-center ">
+                                <p class="num">
+                                    300
+                                </p>
+                            </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <h4 class="display-6 py-5">Developers</h4>
+                            <div class="rounded-circle border border-2 border-primary d-flex justify-content-center align-items-center">
+                                <p class="num">
+                                    300
+                                </p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
