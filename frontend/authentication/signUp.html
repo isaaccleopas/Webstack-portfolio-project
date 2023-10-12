@@ -1,0 +1,86 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>I8D | Properties</title>
+        <link
+            rel="stylesheet"
+            href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="../css/custom.css" />
+    </head>
+    <body>
+        <section class="signUp container-fluid w-100" style="height: 100vh">
+            <div
+                class="container-lg d-flex flex-column justify-content-center align-items-center"
+                style="height: 100%"
+            >
+                <h2 class="display-4 signUp-form-title text-secondary pb-2">
+                    SignUp
+                </h2>
+                <p class="signUp-form-txt text-secondary font-500">
+                    Create a free account
+                </p>
+                <form
+                    action=""
+                    method="post"
+                    class="signUp-form rounded-2 bg-light p-5"
+                >
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <input
+                            type="text"
+                            name="username"
+                            id="username"
+                            class="form-control"
+                        />
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            class="form-control"
+                            placeholder=""
+                        />
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label"
+                            >Password</label
+                        >
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            class="form-control"
+                            placeholder=""
+                        />
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-50 d-block"
+                        >Create</button
+                    >
+                    <p class="text-start my-3"
+                        >Alreay have an account
+                        <a href="./signIn.html" class="log text-decoration-none"
+                            >Login</a
+                        ></p
+                    >
+                </form>
+            </div>
+        </section>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
