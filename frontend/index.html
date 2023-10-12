@@ -9,14 +9,15 @@
             rel="stylesheet"
             href="node_modules/bootstrap/dist/css/bootstrap.min.css"
         />
-        <link rel="stylesheet" href="css/custom.css" />
-        <title>IDL</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+         <link rel="stylesheet" href="css/custom.css" />
+        <title>I&D | Listings</title>
     </head>
     <!-- main-contents -->
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light py-4">
             <div class="container-xl">
-                <a class="navbar-brand" href="#">I&D Properties</a>
+                <a class="navbar-brand" href="index.html">I&D Properties</a>
                 <button
                     class="navbar-toggler d-lg-none"
                     type="button"
@@ -30,24 +31,24 @@
                         class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-md-center"
                     >
                         <li class="nav-item navList">
-                            <a class="nav-link active" href="#">Home</a>
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>  
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#listing">Listings</a>
                         </li>
                         <li class="nav-item navList">
-                            <a class="nav-link" href="#">Listings</a>
+                            <a class="nav-link" href="#about">About</a>
                         </li>
                         <li class="nav-item navList">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item navList">
-                            <a class="nav-link" href="#">Stats</a>
+                            <a class="nav-link" href="#stat">Stats</a>
                         </li>
                         <li class="nav-item px-md-3">
-                            <a href="" class="btn btn-primary nav-link px-5"
+                            <a href="./authentication/signUp.html" class="btn btn-primary nav-link px-5"
                                 >Sign Up</a
                             >
                         </li>
                         <li class="nav-item mt-3 mt-sm-3 mt-md-0">
-                            <a href="" class="btn border nav-link px-5"
+                            <a href="./authentication/signIn.html" class="btn border nav-link px-5"
                                 >Sign in</a
                             >
                         </li>
@@ -77,16 +78,17 @@
                         <div
                             class="carousel-caption d-flex flex-column h-100 text-white top:0 align-items-start justify-content-center"
                         >
-                            <h1 class="display-3 text-uppercase"
+                            <h1 class="text-center text-md-start display-md-6 display-3 text-uppercase"
                                 >Find Your Dream Home</h1
                             >
-                            <p class="text-center text-md-start lead">
+                            <p class="text-center text-md-start">
                                 Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Expedita aspernature tenetur
                                 accusamus. Esse neque, alias quo est totam fugit
                                 atque inventore officiis pariatur maiores
                                 delectus eligendi quos minus reiciendis quod?
                             </p>
+                            <a href="./authentication/signUp.html" class="btn btn-primary my-3 align-self-center align-self-md-start">Get started</a>
                         </div>
                         <img
                             src="./img/estate_bg4.jpg"
@@ -98,16 +100,17 @@
                         <div
                             class="carousel-caption d-flex flex-column h-100 text-white top:0 align-items-start justify-content-center"
                         >
-                            <h1 class="display-md-6 display-3 text-uppercase"
+                            <h1 class="text-center text-md-start display-md-6 display-3 text-uppercase"
                                 >Find Your Dream Home</h1
                             >
-                            <p class="text-center text-md-start lead">
+                            <p class="text-center text-md-start">
                                 Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Expedita aspernature tenetur
                                 accusamus. Esse neque, alias quo est totam fugit
                                 atque inventore officiis pariatur maiores
                                 delectus eligendi quos minus reiciendis quod?
                             </p>
+                             <a href="./authentication/signUp.html" class="btn btn-primary my-3 align-self-center align-self-md-start">Get started</a>
                         </div>
                         <img
                             src="./img/estate_bg3.jpg"
@@ -122,7 +125,7 @@
                     data-bs-target="#homecarousel"
                     data-bs-slide="prev"
                 >
-                    <span class="carousel-control-prev-icon"></span>
+                    <span class="carousel-control-prev-icon d-none d-md-block"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <button
@@ -131,7 +134,7 @@
                     data-bs-target="#homecarousel"
                     data-bs-slide="next"
                 >
-                    <span class="carousel-control-next-icon"></span>
+                    <span class="carousel-control-next-icon d-none d-md-block"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
@@ -154,21 +157,26 @@
                     <label for="" class="form-label"></label>
                     <select class="form-select form-select-lg" name="" id="">
                         <option selected>Property Catergories</option>
-                        <option value="">Houses</option>
-                        <option value="">Land</option>
-                        <option value="">Flat/Apartment</option>
-                        <option value="">Commercial Property</option>
+                        <option value="house">Houses</option>
+                        <option value="land">Land</option>
+                        <option value="Flat">Flat/Apartment</option>
+                        <option value="commercial">Commercial Property</option>
                     </select>
                 </div>
                     <div class="row">
-                    <div class="mb-3 col-6">
+                    <div class="mb-3 col-4">
                       <label for="square-meter" class="form-label">Square Meter</label>
                       <input type="text" name="square-meter" id="square-meter" class="form-control py-2" placeholder="SQM">
                     </div>
                     
-                    <div class="mb-3 col-6">
+                    <div class="mb-3 col-4">
                       <label for="max-price" class="form-label">Max Price</label>
                       <input type="text" name="price" id="max-price" class="form-control py-2" placeholder="000000">
+                    </div>
+
+                    <div class="mb-3 col-4">
+                      <label for="min-price" class="form-label">Min Price</label>
+                      <input type="text" name="price" id="min-price" class="form-control py-2" placeholder="000000">
                     </div>
                     </div>
                 <button type="submit" class="btn btn-primary w-100 p-3">Search</button>
@@ -176,7 +184,7 @@
             </div>
         </section>
         <!-- End of Search Section -->
-        <section class="listings section bg-light">
+        <section class="listings section bg-light" id="listing">
             <div class="container-lg py-5">
                 <div class="list-head text-center">
                     <h3 class="listhead display-3">
@@ -230,7 +238,7 @@
         </section>
         <!-- End of listings section -->
         <!-- About section -->
-        <section class="about section">
+        <section class="about section" id="about">
             <div class="container-lg text-center py-5">
                 <div class="row gap-2 gap-lg-0 m-auto justify-content-center">
                     <div class="col-md-5 col-sm-12 rounded-2">
@@ -247,7 +255,7 @@
         </section>
         <!-- End of about section -->
         <!-- Stats section -->
-        <section class="stats bg-light">
+        <section class="stats bg-light" id="stat">
             <div class="container py-5">
                 <div class="stats-content text-center my-3">
                     <h3 class="display-4">Stats</h3>
@@ -256,7 +264,7 @@
                     <div class="col-md-6 col-sm-12 text-center">
                         <h4 class="display-6 py-5">Agents</h4>
                             <div class="rounded-circle border border-2 border-primary d-flex justify-content-center align-items-center ">
-                                <p class="num">
+                                <p class="num display-4">
                                     300
                                 </p>
                             </div>
@@ -265,7 +273,7 @@
                     <div class="col-md-6 col-sm-12 text-center">
                         <h4 class="display-6 py-5">Developers</h4>
                             <div class="rounded-circle border border-2 border-primary d-flex justify-content-center align-items-center">
-                                <p class="num">
+                                <p class="num display-4">
                                     300
                                 </p>
                             </div>
@@ -273,6 +281,28 @@
                 </div>
             </div>
         </section>
+        <!-- End of news letter section -->
+        <!-- Newsletter section -->
+        <section class="newsletter bg-primary">
+            <div class="container-lg py-5">
+                <div class="newsHead text-center pb-3">
+                    <h3 class="display-5 text-light">Subscribe to our newsletter</h3>
+                </div>
+                <form action="" class="newsForm">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control py-2" placeholder="Email">
+                            <button class="btn btn-secondary" type="button" id="button-addon2">Subscribe</button>
+                        </div>
+                </form>
+            </div>
+        </section>
+        <!-- End of newsletter section -->
+        <footer class="footer section bg-dark">
+            <div class="container-lg">
+
+            </div>
+        </footer>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
         <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
