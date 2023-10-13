@@ -42,7 +42,8 @@ const Navbar = () => {
       formData.append('filename', filename)
       formData.append('image', photo)
 
-      await request('/upload/image', "POST", {}, formData, true)
+      const imgdata = await request('/property/upload', "POST", {}, formData, true)
+      console.log('This is imagedata:', imgdata)
     }else {
       return
     }
@@ -50,11 +51,11 @@ const Navbar = () => {
     try {
       const options = {
         'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application.json'
+        'Content-Type': 'application/json'
       }
 
-      const data = await request('/property', "POST", options, {...state, img: filename})
-      console.log(data)
+      const data = await request('/property', "POST", options, {...state, image: filename})
+      console.log('This is property data:', data)
       handleCloseForm()
     } catch (error) {
       console.error(error)
@@ -99,15 +100,34 @@ const Navbar = () => {
                 <input type="text" placeholder='Title...' name='title' onChange={handleState} />
                 <input type="text" placeholder='Description...' name='description' onChange={handleState} />
                 <input type="number" placeholder='Price...' name='price' onChange={handleState} />
-                <input type="text" placeholder='Type of Property...' name='propertyType' onChange={handleState} />
-                <input type="text" placeholder='Category...' name='category' onChange={handleState} />
+
+                {/* Property Type select */}
+                <select name='propertyType' onChange={handleState}>
+                  <option value=''>Select Property Type</option>
+                  <option value='House'>House</option>
+                  <option value='Land'>Land</option>
+                </select>
+
+                {/* Category select */}
+                <select name='category' onChange={handleState}>
+                  <option value=''>Select Category</option>
+                  <option value='For Sale'>For Sale</option>
+                  <option value='For Rent'>For Rent</option>
+                </select>
+
                 <input type="text" placeholder='Location...' name='location' onChange={handleState} />
-                <input type="number" placeholder='Bed Rooms...' name='bedrooms' step={1} min={2} onChange={handleState} />
-                <input type="number" placeholder='Sq. Meter...' name='squareMeter' onChange={handleState} />
-                
-                <div style={{display: 'flex', alignItems: 'center', gap: '12px', width: '50%'}}>
-                  <label htmlFor='photo'>Property picture <AiOutlineFileImage/></label>
-                  <input type="file" id='photo' style={{display:'none'}} onChange={(e) => setPhoto(e.target.files[0])} />
+
+                {state.propertyType === 'House' && (
+                  <input type="number" placeholder='Bed Rooms...' name='bedrooms' step={1} min={2} onChange={handleState} />
+                )}
+
+                {state.propertyType === 'Land' && (
+                  <input type="number" placeholder='Sq. Meter...' name='squareMeter' onChange={handleState} />
+                )}
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '50%' }}>
+                  <label htmlFor='photo'>Property picture <AiOutlineFileImage /></label>
+                  <input type='file' id='photo' style={{ display: 'none' }} onChange={(e) => setPhoto(e.target.files[0])} />
                   {photo && <p>{photo.name}</p>}
                 </div>
                 <button>List Property</button>

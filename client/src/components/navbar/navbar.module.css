@@ -115,6 +115,8 @@
     align-items: center;
     justify-content: center;
     z-index: 999999999999;
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
 .listPropertyWrapper {
@@ -123,6 +125,7 @@
     height: 100vh;
     width: 35vw;
     border-radius: 20px;
+    overflow-y: auto;
 }
 
 .listPropertyWrapper>h2 {

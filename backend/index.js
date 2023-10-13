@@ -23,6 +23,7 @@ mongoose
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use('/images', express.static('upload/images'))
 app.use("/user", usersController);
 app.use("/auth", authController);
 app.use("/property", propertyController);
