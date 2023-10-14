@@ -2,17 +2,18 @@ const Property = require('../models/Property');
 const propertyController = require('express').Router();
 const verifyToken = require('../middlewares/verifyToken');
 const multer = require('multer');
+const crypto = require('crypto');
 const path = require('path');
 
 
 // Set up storage for multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, '../uploads'));
+    cb(null, './uploads'); // Destination folder
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+    const uniqueFileName = crypto.randomUUID() + '-' + file.originalname;
+    cb(null, uniqueFileName); // Unique filename for the uploaded file
   },
 });
 
@@ -131,23 +132,15 @@ propertyController.post('/:propertyId/reviews', verifyToken, async (req, res) =>
 });
 
 // create an estate
-propertyController.post('/', verifyToken, upload.array('images', 5), async (req, res) => {
-  try {
-    const imageUrls = req.files.map((file) => {
-      return `/uploads/${file.filename}`;
-    });
+propertyController.post('/', verifyToken, async (req, res) => {
+    try {
+        const newProperty = await Property.create({ ...req.body, createdBy: req.user.id })
 
-    const newProperty = await Property.create({
-      ...req.body,
-      createdBy: req.user.id,
-      images: imageUrls,
-    });
-
-    return res.status(201).json(newProperty);
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
-  }
-});
+        return res.status(201).json(newProperty)
+    } catch (error) {
+        return res.status(500).json(error)
+    }
+})
 
 // update an estate
 propertyController.put('/:propertyId', verifyToken, async (req, res) => {
@@ -195,15 +188,11 @@ propertyController.delete('/:propertyId', verifyToken, async (req, res) => {
 });
 
 // upload image
-propertyController.post('/upload', verifyToken, upload.array('images', 5), async (req, res) => {
+propertyController.post("/upload", upload.single("images"), async (req, res) => {
   try {
-    const imageUrls = req.files.map((file) => {
-      return `/uploads/${file.filename}`;
-    });
-
-    return res.status(200).json({ imageUrls });
+      return res.status(200).json("File uploded successfully");
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+      console.error(error);
   }
 });
 

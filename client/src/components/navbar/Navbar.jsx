@@ -39,11 +39,11 @@ const Navbar = () => {
     if(photo){
       const formData = new FormData()
       filename = crypto.randomUUID() + photo.name
-      formData.append('filename', filename)
-      formData.append('image', photo)
+      formData.append('images', filename)
+      formData.append('images', photo)
 
       const imgdata = await request('/property/upload', "POST", {}, formData, true)
-      console.log('This is imagedata:', imgdata)
+
     }else {
       return
     }
@@ -54,8 +54,7 @@ const Navbar = () => {
         'Content-Type': 'application/json'
       }
 
-      const data = await request('/property', "POST", options, {...state, image: filename})
-      console.log('This is property data:', data)
+      const data = await request('/property', "POST", options, {...state, images: filename})
       handleCloseForm()
     } catch (error) {
       console.error(error)
@@ -96,7 +95,7 @@ const Navbar = () => {
           <div className={classes.listPropertyForm} onClick={handleCloseForm}>
             <div className={classes.listPropertyWrapper} onClick={(e) => e.stopPropagation()}>
               <h2>List Property</h2>
-              <form onSubmit={handleListProperty}>
+              <form onSubmit={handleListProperty} encType="multipart/form-data">
                 <input type="text" placeholder='Title...' name='title' onChange={handleState} />
                 <input type="text" placeholder='Description...' name='description' onChange={handleState} />
                 <input type="number" placeholder='Price...' name='price' onChange={handleState} />
@@ -127,7 +126,7 @@ const Navbar = () => {
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '50%' }}>
                   <label htmlFor='photo'>Property picture <AiOutlineFileImage /></label>
-                  <input type='file' id='photo' style={{ display: 'none' }} onChange={(e) => setPhoto(e.target.files[0])} />
+                  <input type="file" id="photo" style={{ display: 'none' }} onChange={(e) => setPhoto(e.target.files[0])} />
                   {photo && <p>{photo.name}</p>}
                 </div>
                 <button>List Property</button>

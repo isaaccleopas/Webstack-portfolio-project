@@ -34,7 +34,7 @@ const Properties = () => {
           {displayProperties.map((property) => (
             <div key={property._id} className={classes.property}>
               <Link to={`/propertyDetail/${property._id}`} className={classes.imgContainer}>
-                <img src={img} alt="" />
+                <img src={property.img ? `/http://localhost:5000/images/${property.images}` : img} alt="" />
               </Link>
               <div className={classes.details}>
                 <div className={classes.price}>
