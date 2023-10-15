@@ -19,9 +19,59 @@
         <link rel="stylesheet" href="../css/custom.css" />
     </head>
     <body>
-        <section class="signUp container-fluid w-100" style="height: 100vh">
+        <nav
+            class="navbar navbar-expand-lg navbar-dark bg-dark text-light py-4"
+        >
+            <div class="container-xl">
+                <a class="navbar-brand" href="../index.html">I&D Properties</a>
+                <button
+                    class="navbar-toggler d-lg-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mobileMenu">
+                    <ul
+                        class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-md-center"
+                    >
+                        <li class="nav-item navList">
+                            <a class="nav-link active" href="../index.html"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#listing">Listings</a>
+                        </li>
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#stat">Stats</a>
+                        </li>
+                        <li class="nav-item px-md-3">
+                            <a
+                                href="signUp.html"
+                                class="btn btn-primary nav-link px-5"
+                                >Sign Up</a
+                            >
+                        </li>
+                        <li class="nav-item mt-3 mt-sm-3 mt-md-0">
+                            <a
+                                href="signIn.html"
+                                class="btn border nav-link px-5"
+                                >Sign in</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End of nav section -->
+        <section class="signUp container-fluid w-100">
             <div
-                class="container-lg d-flex flex-column justify-content-center align-items-center"
+                class="container-lg d-flex flex-column justify-content-center align-items-center py-5"
                 style="height: 100%"
             >
                 <h2 class="display-4 signUp-form-title text-secondary pb-2">
@@ -31,12 +81,14 @@
                     Create a free account
                 </p>
                 <form
-                    action=""
+                    action="signUp.html"
                     method="post"
                     class="signUp-form rounded-2 bg-light p-5"
                 >
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name:</label>
+                        <label for="name" class="form-label"
+                            >Name: <span class="text-danger">*</span></label
+                        >
                         <input
                             type="text"
                             name="username"
@@ -46,7 +98,9 @@
                         <small id="helpId" class="text-muted"></small>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" class="form-label"
+                            >Email: <span class="text-danger">*</span></label
+                        >
                         <input
                             type="email"
                             name="email"
@@ -58,12 +112,23 @@
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label"
-                            >Password</label
+                            >Password: <span class="text-danger">*</span></label
                         >
                         <input
                             type="password"
                             name="password"
                             id="password"
+                            class="form-control"
+                            placeholder=""
+                        />
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact" class="form-label">Contact:</label>
+                        <input
+                            type="text"
+                            name="contact"
+                            id="contact"
                             class="form-control"
                             placeholder=""
                         />
@@ -81,6 +146,8 @@
                 </form>
             </div>
         </section>
-        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../script/app.js"></script>
+        <script src="../script/signUp.js"></script>
     </body>
 </html>

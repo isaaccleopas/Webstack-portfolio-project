@@ -14,6 +14,48 @@
         <link rel="stylesheet" href="../css/custom.css" />
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light py-4">
+            <div class="container-xl">
+                <a class="navbar-brand" href="../index.html">I&D Properties</a>
+                <button
+                    class="navbar-toggler d-lg-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mobileMenu">
+                    <ul
+                        class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-md-center"
+                    >
+                        <li class="nav-item navList">
+                            <a class="nav-link active" href="../index.html">Home</a>
+                        </li>  
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#listing">Listings</a>
+                        </li>
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#stat">Stats</a>
+                        </li>
+                        <li class="nav-item px-md-3">
+                            <a href="../authentication/signUp.html" class="btn btn-primary nav-link px-5"
+                                >Sign Up</a
+                            >
+                        </li>
+                        <li class="nav-item mt-3 mt-sm-3 mt-md-0">
+                            <a href="../authentication/signIn.html" class="btn border nav-link px-5"
+                                >Sign in</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End of nav section -->
         <section class="signUp container-fluid w-100" style="height: 100vh">
             <div
                 class="container-lg d-flex flex-column justify-content-center align-items-center"
@@ -23,14 +65,14 @@
                 <form
                     action=""
                     method="post"
-                    class="signUp-form rounded-2 bg-light p-5"
+                    class="signIn-form rounded-2 bg-light p-5"
                 >
                     <div class="mb-3">
                         <label for="email" class="form-label">Email:<span class="text-danger">*</span></label>
                         <input
                             type="email"
-                            name=""
-                            id=""
+                            name="email"
+                            id="email"
                             class="form-control"
                             placeholder=""
                         />
@@ -42,7 +84,7 @@
                         >
                         <input
                             type="password"
-                            name=""
+                            name="password"
                             id="password"
                             class="form-control"
                             placeholder=""
@@ -66,6 +108,8 @@
                 
             </div>
         </section>
-        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../script/app.js"></script>
+        <script src="../script/signIn.js"></script>
     </body>
 </html>
