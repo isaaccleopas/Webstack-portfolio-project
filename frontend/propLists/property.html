@@ -1,0 +1,224 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>I8D | Properties</title>
+        <link
+            rel="stylesheet"
+            href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="../css/custom.css" />
+    </head>
+    <body>
+        <nav
+            class="navbar navbar-expand-lg navbar-dark bg-dark text-light py-4"
+        >
+            <div class="container-xl">
+                <a class="navbar-brand" href="../index.html">I&D Properties</a>
+                <button
+                    class="navbar-toggler d-lg-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mobileMenu">
+                    <ul
+                        class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-md-center"
+                    >
+                        <li class="nav-item navList">
+                            <a class="nav-link active" href="../index.html"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#listing">Listings</a>
+                        </li>
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item navList">
+                            <a class="nav-link" href="#stat">Stats</a>
+                        </li>
+                        <li class="nav-item px-md-3">
+                            <a
+                                href="../authentication/signUp.html"
+                                class="btn btn-primary nav-link px-5"
+                                >Sign Up</a
+                            >
+                        </li>
+                        <li class="nav-item mt-3 mt-sm-3 mt-md-0">
+                            <a
+                                href="../authentication/signIn.html"
+                                class="btn border nav-link px-5"
+                                >Sign in</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End of nav section -->
+        <section class="propList container-fluid w-100">
+            <div
+                class="container-lg d-flex flex-column justify-content-center align-items-center py-5"
+            >
+                <h2 class="display-4 lists-form-title text-secondary pb-2">
+                    List Property
+                </h2>
+                <p class="lists-form-txt text-secondary font-500">
+                    Fill out the field below to get your proprty listed
+                </p>
+                <form
+                    action=""
+                    method="post"
+                    class="w-100 lists-form rounded-2 bg-light p-5"
+                >
+                    <div class="mb-3">
+                        <label for="title" class="form-label"
+                            >Title: <span class="text-danger">*</span></label
+                        >
+                        <input
+                            type="text"
+                            name="title"
+                            id="title"
+                            class="form-control"
+                        />
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label"
+                            >Property Type:
+                            <span class="text-danger">*</span></label
+                        >
+                        <select
+                            class="form-select form-select-lg"
+                            name="PropertyType"
+                            id="property-type"
+                        >
+                            <option selected>House</option>
+                            <option value="house">House</option>
+                            <option value="land">Land</option>
+                            <option value="flat">Flat</option>
+                        </select>
+                        <small></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label"
+                            >Catergory:
+                            <span class="text-danger">*</span></label
+                        >
+                        <select
+                            class="form-select form-select-lg"
+                            name="category"
+                            id="category"
+                        >
+                            <option selected>For sale</option>
+                            <option value="for sale">For sale</option>
+                            <option value="for rent">For rent</option>
+                            <option value="Sold">Sold</option>
+                        </select>
+                        <small></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label"
+                            >Price: <span class="text-danger">*</span></label
+                        >
+                        <input
+                            type="text"
+                            name="price"
+                            id="price"
+                            class="form-control"
+                            placeholder=""
+                        />
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label"
+                            >Location: <span class="text-danger">*</span></label
+                        >
+                        <input
+                            type="text"
+                            name="location"
+                            id="location"
+                            class="form-control"
+                            placeholder=""
+                        />
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label"
+                            >Square meter:
+                            <span class="text-danger">*</span></label
+                        >
+                        <input
+                            type="text"
+                            name="squareMeter"
+                            id="square-meter"
+                            class="form-control"
+                            placeholder=""
+                        />
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label"
+                            >Bedrooms: <span class="text-danger">*</span></label
+                        >
+                        <input
+                            type="text"
+                            name="bedrooms"
+                            id="bedroom"
+                            class="form-control"
+                            placeholder=""
+                        />
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label"
+                            >Description:
+                            <span class="text-danger">*</span></label
+                        >
+                        <textarea
+                            class="form-control"
+                            name="description"
+                            id="descript"
+                            rows="3"
+                        ></textarea>
+                        <small></small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="file" class="form-label"
+                            >Upload image:
+                            <span class="text-danger">*</span></label
+                        >
+                        <input
+                            type="file"
+                            class="form-control"
+                            name="file"
+                            id="imgUpload"
+                            placeholder=""
+                        />
+                        <small></small>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 d-block"
+                        >Submit</button
+                    >
+                </form>
+            </div>
+        </section>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../script/app.js"></script>
+        <script src="../script/propertylist.js"></script>
+    </body>
+</html>
