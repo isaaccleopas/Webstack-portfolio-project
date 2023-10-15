@@ -53,7 +53,7 @@ propertyController.get('/counts', async (req, res) => {
 });
 
 // Advanced property search
-propertyController.get('/advanced', async (req, res) => {
+propertyController.get('/search', async (req, res) => {
   try {
     const { propertyType, category, minPrice, maxPrice } = req.query;
     const filter = {};

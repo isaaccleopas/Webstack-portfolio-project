@@ -8,7 +8,6 @@ import classes from './properties.module.css';
 
 const Properties = () => {
   const [properties, setProperties] = useState([]);
-  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const fetchProperties = async () => {
@@ -22,8 +21,6 @@ const Properties = () => {
     fetchProperties();
   }, []);
 
-  const displayProperties = showAll ? properties : properties.slice(0, 4);
-
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
@@ -31,7 +28,7 @@ const Properties = () => {
           <h5>Property Listings</h5>
         </div>
         <div className={classes.properties}>
-          {displayProperties.map((property) => (
+          {properties.map((property) => (
             <div key={property._id} className={classes.property}>
               <Link to={`/propertyDetail/${property._id}`} className={classes.imgContainer}>
                 <img src={property.img ? `/http://localhost:5000/images/${property.images}` : img} alt="" />
@@ -54,11 +51,6 @@ const Properties = () => {
             </div>
           ))}
         </div>
-        {properties.length > 4 && (
-          <button onClick={() => setShowAll(!showAll)} className={classes.showMoreButton}>
-            {showAll ? 'Show Less' : 'Show More'}
-          </button>
-        )}
       </div>
     </div>
   );

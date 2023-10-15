@@ -42,7 +42,7 @@ const Navbar = () => {
       formData.append('images', filename)
       formData.append('images', photo)
 
-      const imgdata = await request('/property/upload', "POST", {}, formData, true)
+      await request('/property/upload', "POST", {}, formData, true)
 
     }else {
       return
@@ -54,7 +54,7 @@ const Navbar = () => {
         'Content-Type': 'application/json'
       }
 
-      const data = await request('/property', "POST", options, {...state, images: filename})
+      await request('/property', "POST", options, {...state, images: filename})
       handleCloseForm()
     } catch (error) {
       console.error(error)
