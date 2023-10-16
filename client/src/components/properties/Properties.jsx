@@ -70,29 +70,28 @@ const Properties = () => {
   
       if (priceRange) {
         const priceRangeParts = priceRange.split('-');
-        
+  
         if (priceRangeParts.length === 2) {
           const minPrice = Number(priceRangeParts[0]);
           const maxPrice = Number(priceRangeParts[1]);
           const category = categoryToIdx(property.category);
   
-          if (
+          return (
             property.propertyType === options.propertyType &&
             category === Number(options.category) &&
-            property.price >= minPrice && property.price <= maxPrice
-          ) {
-            return property;
-          }
+            property.price >= minPrice &&
+            property.price <= maxPrice
+          );
         }
-        return null;
       }
+      return false;
     });
   
-    const queryStr = (`propertyType=${options.propertyType}&category=${options.category}&priceRange=${options.priceRange}`)
+    const queryStr = `propertyType=${options.propertyType}&category=${options.category}&priceRange=${options.priceRange}`;
   
     navigate(`/properties?${queryStr}`, { replace: true });
-    setFilteredProperties(filteredProperties); // Update to setFilteredProperties
-  }
+    setFilteredProperties(filteredProperties);
+  };
 
   return (
     <div className={classes.container}>
