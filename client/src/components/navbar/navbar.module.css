@@ -79,10 +79,87 @@
     text-decoration: none;
 }
 
-.right .list {
+.right > .list {
+    text-decoration: none;
     padding: 0.25rem 0.75rem;
+    background-color: #039256;
+    color: #fff;
     border-radius: 12px;
     transition: 150ms all;
     cursor: pointer;
     position: relative;
+}
+
+.right > .list:hover {
+    color: #fff;
+}
+
+.right .logoutBtn {
+    cursor: pointer;
+    color: #222;
+    transition: 1500ms all ease-in-out;
+}
+
+.right .logoutBtn:hover {
+    color: #666;
+}
+
+.listPropertyForm {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999999999;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.listPropertyWrapper {
+    position: relative;
+    background-color: #fff;
+    height: 100vh;
+    width: 35vw;
+    border-radius: 20px;
+    overflow-y: auto;
+}
+
+.listPropertyWrapper>h2 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.listPropertyWrapper>form>div>label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    margin-right: 1rem;
+}
+
+.listPropertyWrapper>form>select{
+    display: flex;
+    justify-content: flex-start;
+    background-color: white;
+    color: #222;
+    outline: none;
+    padding: 0.5rem 0.25rem;
+    width: 50%;
+ }
+
+.listPropertyWrapper button {
+    margin-top: 0.5rem;
+}
+
+.removeIcon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 22px;
+    cursor: pointer;
 }
