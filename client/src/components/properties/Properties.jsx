@@ -63,11 +63,9 @@ const Properties = () => {
       options = param;
     }
   
-    console.log('Options:', options);
     const filteredProperties = properties.filter((property) => {
       const priceRange = arrPriceRanges[options.priceRange];
-      console.log('Price Range:', priceRange);
-  
+    
       if (priceRange) {
         const priceRangeParts = priceRange.split('-');
   
@@ -98,17 +96,17 @@ const Properties = () => {
       <div className={classes.wrapper}>
         <h2>Let us find your dream place now</h2>
         <div className={classes.options}>
-        <select name="propertyType" onChange={handleState}>
+        <select value={state?.propertyType} name="propertyType" onChange={handleState}>
             <option disabled>Select Type</option>
             <option value="House">House</option>
             <option value="Land">Land</option>
           </select>
-          <select name="category" onChange={handleState}>
+          <select value={state?.category} name="category" onChange={handleState}>
             <option disabled>Select Category</option>
             <option value="0">For Sale</option>
             <option value="1">For Rent</option>
           </select>
-          <select name="priceRange" onChange={handleState}>
+          <select value={state?.priceRange} name="priceRange" onChange={handleState}>
             <option disabled>Select Price Range</option>
             <option value="0">100,000-1,000,000</option>
             <option value="1">1,000,000-5,000,000</option>
@@ -130,7 +128,7 @@ const Properties = () => {
             {filteredProperties.map((property) => (
               <div key={property._id} className={classes.property}>
                 <Link className={classes.imgContainer} to={`/propertyDetail/${property._id}`}>
-                  <img src={property.img ? `/http://localhost:5000/images/${property.images}` : img} alt=''/>
+                  <img src={`http://localhost:5000/images/${property.images}`} alt=''/>
                 </Link>
                 <div className={classes.details}>
                   <div className={classes.price}>
