@@ -38,7 +38,7 @@ const Navbar = () => {
     let filename = null
     if(photo){
       const formData = new FormData()
-      filename = crypto.randomUUID() + photo.name
+      filename = photo.name
       formData.append('images', filename)
       formData.append('images', photo)
 
