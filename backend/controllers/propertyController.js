@@ -9,10 +9,10 @@ const path = require('path');
 // Set up storage for multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, './uploads'); // Destination folder
+    cb(null, './public/images'); // Destination folder
   },
   filename: (req, file, cb) => {
-    const uniqueFileName = crypto.randomUUID() + '-' + file.originalname;
+    const uniqueFileName = file.originalname;
     cb(null, uniqueFileName); // Unique filename for the uploaded file
   },
 });

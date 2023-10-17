@@ -17,7 +17,6 @@ function App() {
           <>
             <Navbar />
             <Hero />
-            <Properties />
             <Stats />
             <Footer />
           </>
@@ -31,7 +30,7 @@ function App() {
           </>
         } />
 
-        <Route path='/propertyDetail/:propertyId' element={
+        <Route path='/propertyDetail/:id' element={
           <>
             <Navbar />
             <PropertyDetail />
