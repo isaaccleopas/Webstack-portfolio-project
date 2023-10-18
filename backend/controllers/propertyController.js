@@ -112,7 +112,7 @@ propertyController.get('/:propertyId/reviews', async (req, res) => {
 });
 
 // Create a review for a property
-propertyController.post('/:propertyId/reviews', verifyToken, async (req, res) => {
+propertyController.post('/:propertyId/review', verifyToken, async (req, res) => {
   const { propertyId } = req.params;
   const reviewData = req.body;
   try {
