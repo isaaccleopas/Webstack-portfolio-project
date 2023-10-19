@@ -83,7 +83,7 @@ const PropertyDetail = () => {
     <div className={classes.container}>
       <div className={classes.wrapper}>
         <div className={classes.left}>
-        <img src={`http://localhost:5000/images/${propertyDetail?.images}`} alt=''/>
+        <img src={`https://real-estate-hw4h.onrender.com/images/${propertyDetail?.images}`} alt=''/>
         </div>
       </div>
       <div className={classes.right}>
