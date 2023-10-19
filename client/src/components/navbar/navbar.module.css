@@ -1,4 +1,4 @@
-.container{
+/* .container{
     position: sticky;
     top: 0;
     left: 0;
@@ -88,6 +88,7 @@
     transition: 150ms all;
     cursor: pointer;
     position: relative;
+<<<<<<< HEAD
 }
 
 .right > .list:hover {
@@ -163,3 +164,6 @@
     font-size: 22px;
     cursor: pointer;
 }
+=======
+} */
+>>>>>>> 8fbb56625d0d71185203b105ab9e0606e0bc8ce0
