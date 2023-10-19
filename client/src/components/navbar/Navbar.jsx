@@ -62,82 +62,82 @@ const Navbar = () => {
   }
 
   return (
-      <>
-          <nav class="navbar navbar-expand-lg navbar-dark text-light py-4 position-fixed top-0 w-100">
-              <div class="container-xl">
-                  <Link class="navbar-brand" to="/">
-                      I&D Properties <BsHouseDoor/>
-                  </Link>
-                  <button
-                      class="navbar-toggler d-lg-none"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#mobileMenu"
-                  >
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="mobileMenu">
-                      <ul class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-md-center">
-                          <li class="nav-item navList">
-                              <Link class="nav-link active" to="/">
-                                  Home
-                              </Link>
-                          </li>
-                          <li class="nav-item navList">
-                              <Link class="nav-link" href="#listing">
-                                  Listings
-                              </Link>
-                          </li>
-                          <li class="nav-item navList">
-                              <Link class="nav-link" href="#about">
-                                  About
-                              </Link>
-                          </li>
-                          <li class="nav-item navList">
-                              <Link class="nav-link" href="#stat">
-                                  Stats
-                              </Link>
-                          </li>
-                          <li class="nav-item px-md-3">
-                              <Link
-                                  to="/signup"
-                                  class="signUp-btn btn text-decoration-none nav-link px-5"
-                              >
-                                  Sign Up
-                              </Link>
-                          </li>
-                          <li class="nav-item mt-3 mt-sm-3 mt-md-0">
-                              <Link
-                                  to="/signin"
-                                  class="btn border border-3 nav-link px-5"
-                              >
-                                  Sign in
-                              </Link>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </nav>
-          {/* <div className={classes.container}>
-              <div className={classes.wrapper}>
-                  <Link className={classes.left}>
-                      ID Properties <BsHouseDoor />
-                  </Link>
-                  <ul className={classes.center}>
-                      <li className={classes.listItem}>Home</li>
-                      <li className={classes.listItem}>About</li>
-                      <li className={classes.listItem}>Listings</li>
-                      <li className={classes.listItem}>Stats</li>
-                  </ul>
-                  <div className={classes.right}>
-                      <Link to="/signup">Sign Up</Link>
-                      <Link to="/signin">Sign In</Link>
-                  </div>
-              </div>
-          </div> */}
-      
-       </>
+    <div className={classes.container}>
+      <div className={classes.wrapper}>
+        <Link className={classes.left}>
+          ID Properties <BsHouseDoor />
+        </Link>
+        <ul className={classes.center}>
+          <li className={classes.listItem}>Home</li>
+          <li className={classes.listItem}>About</li>
+          <li className={classes.listItem}>Listings</li>
+          <li className={classes.listItem}>Stats</li>
+        </ul>
+        <div className={classes.right}>
+          {!user ? 
+            <>
+              <Link to="/signup">Sign Up</Link>
+              <Link to="/signin">Sign In</Link>
+            </>
+            :
+            <>
+              <span>Hello {user.username}</span>
+              <span onClick={handleLogout} className={classes.logoutBtn}>Logout</span>
+              <Link onClick={() => setShowForm(true)} className={classes.list}>
+                List your property
+              </Link>
+            </>
+          }
+        </div>
+      </div>
+      {
+        showForm && (
+          <div className={classes.listPropertyForm} onClick={handleCloseForm}>
+            <div className={classes.listPropertyWrapper} onClick={(e) => e.stopPropagation()}>
+              <h2>List Property</h2>
+              <form onSubmit={handleListProperty} encType="multipart/form-data">
+                <input type="text" placeholder='Title...' name='title' onChange={handleState} />
+                <input type="text" placeholder='Description...' name='description' onChange={handleState} />
+                <input type="number" placeholder='Price...' name='price' onChange={handleState} />
+
+                {/* Property Type select */}
+                <select name='propertyType' onChange={handleState}>
+                  <option value=''>Select Property Type</option>
+                  <option value='House'>House</option>
+                  <option value='Land'>Land</option>
+                </select>
+
+                {/* Category select */}
+                <select name='category' onChange={handleState}>
+                  <option value=''>Select Category</option>
+                  <option value='For Sale'>For Sale</option>
+                  <option value='For Rent'>For Rent</option>
+                </select>
+
+                <input type="text" placeholder='Location...' name='location' onChange={handleState} />
+
+                {state.propertyType === 'House' && (
+                  <input type="number" placeholder='Bed Rooms...' name='bedrooms' step={1} min={2} onChange={handleState} />
+                )}
+
+                {state.propertyType === 'Land' && (
+                  <input type="number" placeholder='Sq. Meter...' name='squareMeter' onChange={handleState} />
+                )}
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '50%' }}>
+                  <label htmlFor='photo'>Property picture <AiOutlineFileImage /></label>
+                  <input type="file" id="photo" style={{ display: 'none' }} onChange={(e) => setPhoto(e.target.files[0])} />
+                  {photo && <p>{photo.name}</p>}
+                </div>
+                <button>List Property</button>
+              </form>
+              <AiOutlineClose onClick={handleCloseForm} className={classes.removeIcon} />
+            </div>
+          </div>
+        )
+      }
+    </div>
   );
-}
+};
 
 export default Navbar;

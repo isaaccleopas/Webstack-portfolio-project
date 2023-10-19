@@ -21,10 +21,8 @@ function App() {
           <>
             <Navbar />
             <Hero />
-	    <Properties/>
             <About/>
             <Stats />
-            <Newsletter/>
             <Footer />
           </>
         } />
