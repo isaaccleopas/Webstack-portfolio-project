@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate, Link } from 'react-router-dom';
-import { login } from '../../redux/authSlice';
-import { request } from '../../util/fetchAPI';
-import classes from './signin.module.css';
-=======
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -15,7 +6,6 @@ import { login } from '../../redux/authSlice'
 import { request } from '../../util/fetchAPI'
 import classes from './signin.module.css'
 import Navbar from '../navbar/Navbar'
->>>>>>> 8fbb56625d0d71185203b105ab9e0606e0bc8ce0
 
 const Signin = () => {
   const [email, setEmail] = useState("");

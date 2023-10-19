@@ -21,11 +21,8 @@ function App() {
           <>
             <Navbar />
             <Hero />
-<<<<<<< HEAD
-=======
-            <Properties />
+	    <Properties/>
             <About/>
->>>>>>> 8fbb56625d0d71185203b105ab9e0606e0bc8ce0
             <Stats />
             <Newsletter/>
             <Footer />

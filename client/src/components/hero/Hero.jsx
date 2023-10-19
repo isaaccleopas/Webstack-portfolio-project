@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom'
-import { AiOutlineSearch } from 'react-icons/ai';
-import classes from './hero.module.css';
-=======
 import React, { useState } from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
 import classes from './hero.module.css'
 import { Link } from 'react-router-dom';
->>>>>>> 8fbb56625d0d71185203b105ab9e0606e0bc8ce0
 
 const Hero = () => {
   const [propertyType, setPropertyType] = useState('House');
@@ -21,39 +14,14 @@ const Hero = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <div className={classes.container}>
-      <div className={classes.wrapper}>
-        <h2>Let's Find Your Dream Property</h2>
-        <div className={classes.options}>
-          <select onChange={(e) => setPropertyType(e.target.value)}>
-            <option disabled>Select Type</option>
-            <option value="House">House</option>
-            <option value="Land">Land</option>
-          </select>
-          <select onChange={(e) => setCategory(e.target.value)}>
-            <option disabled>Select Category</option>
-            <option value="0">For Sale</option>
-            <option value="1">For Rent</option>
-          </select>
-          <select onChange={(e) => setPriceRange(e.target.value)}>
-            <option disabled>Select Price Range</option>
-            <option value="0">100,000-1,000,000</option>
-            <option value="1">1,000,000-5,000,000</option>
-            <option value="2">5,000,000-10,000,000</option>
-            <option value="3">10,000,000-20,000,000</option>
-            <option value="4">20,000,000-100,000,000</option>
-            <option value="5">100,000,000 and Above</option>
-          </select>
-          <AiOutlineSearch className={classes.searchIcon} onClick={handleSearch} />
-        </div>
-      </div>
-    </div>
-  );
-};
-=======
-      <>
-          <div className="showcase">
+    <>
+     <div className="showcase">
+        <div
+          id="homecarousel"
+          className="con container-fluid carousel slide p-0"
+          data-bs-ride="carousel"
+        >
+          <div className="carousel-indicators">
               <div
                   id="homecarousel"
                   className="con container-fluid carousel slide p-0"
@@ -288,6 +256,5 @@ const Hero = () => {
       </>
   );
 }
->>>>>>> 8fbb56625d0d71185203b105ab9e0606e0bc8ce0
 
 export default Hero;
