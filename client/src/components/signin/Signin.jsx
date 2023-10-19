@@ -5,6 +5,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { login } from '../../redux/authSlice'
 import { request } from '../../util/fetchAPI'
 import classes from './signin.module.css'
+import Navbar from '../navbar/Navbar'
 
 const Signin = () => {
   const [email, setEmail] = useState("")
@@ -43,29 +44,64 @@ const Signin = () => {
   }
 
   return (
-    <div className={classes.container}>
-      <div className={classes.wrapper}>
-        <h2>Sign In</h2>
-        <form onSubmit={handleLogin}>
-          <input type='email' placeholder='Email...' onChange={(e) => setEmail(e.target.value)} />
-          <input type='password' placeholder='Password...' onChange={(e) => setPassword(e.target.value)} />
-          <button type='submit'>Sign In</button>
-          <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
-        </form>
-        {error && (
-          <div className={classes.error}>
-            There was an error signing in!
-            Wrong credentials or server error
+    <>
+      <Navbar/>
+          <div className="signUp container-fluid w-100">
+              <div className="container-lg d-flex flex-column justify-content-center align-items-center">
+                  <h2>Sign In</h2>
+                  <form
+                      onSubmit={handleLogin}
+                      className="signIn-form rounded-2 bg-light p-5"
+                  >
+                      <div className="mb-3">
+                          <input
+                              type="email"
+                              placeholder="Email..."
+                              onChange={(e) => setEmail(e.target.value)}
+                              className="form-control"
+                          />
+                          <small className="text-danger error">
+                              {emptyFields && (
+                                  <div className={classes.error}>
+                                      Email address required!
+                                  </div>
+                              )}
+                          </small>
+                      </div>
+                      <div className="mb-3">
+                          <input
+                              type="password"
+                              placeholder="Password..."
+                              onChange={(e) => setPassword(e.target.value)}
+                              className="form-control"
+                          />
+                          <small className="text-danger error">
+                              {emptyFields && (
+                                  <div className={classes.error}>
+                                      Password required!
+                                  </div>
+                              )}
+                          </small>
+                      </div>
+
+                      <button type="submit" className="btn btn-primary w-100">
+                          Sign In
+                      </button>
+                      <p className="mt-3">
+                          Don't have an account?{' '}
+                          <Link to="/signup">Sign Up</Link>
+                      </p>
+                  </form>
+                  {error && (
+                      <div className={classes.error}>
+                          There was an error signing in! Wrong credentials or
+                          server error
+                      </div>
+                  )}
+              </div>
           </div>
-        )}
-         {emptyFields && (
-          <div className={classes.error}>
-            Fill all fields!
-          </div>
-        )}
-      </div>
-    </div>
-  )
+      </>
+  );
 }
 
 export default Signin
