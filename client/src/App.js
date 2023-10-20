@@ -2,6 +2,7 @@ import {Navigate, Route, Routes, useLocation} from 'react-router-dom'
 import './App.css'
 import Navbar from './components/navbar/Navbar'
 import Hero from './components/hero/Hero'
+// import PropertyCard from './components/propertyCard/PropertyCard'
 import Properties from './components/properties/Properties'
 import Footer from './components/footer/Footer'
 import PropertyDetail from './components/propertyDetail/PropertyDetail'
@@ -26,6 +27,7 @@ function App() {
           <>
             <Navbar />
             <Hero />
+            {/* <PropertyCard/> */}
             <Stats />
             <Footer />
           </>

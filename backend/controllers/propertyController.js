@@ -82,6 +82,19 @@ propertyController.get('/search', async (req, res) => {
   }
 });
 
+// get all properties, sorted by creation date (latest first), and limit to 4
+propertyController.get('/latest', async (req, res) => {
+  try {
+    const properties = await Property.find()
+      .sort({ createdAt: -1 })
+      .limit(4);
+
+    return res.status(200).json(properties);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 // get individual property
 propertyController.get('/:propertyId', async (req, res) => {
   const { propertyId } = req.params;
