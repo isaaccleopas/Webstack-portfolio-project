@@ -96,7 +96,7 @@ const Properties = () => {
       <div className={classes.wrapper}>
         <h2>Let us find your dream place now</h2>
         <div className={classes.options}>
-        <select value={state?.propertyType} name="propertyType" onChange={handleState}>
+          <select value={state?.propertyType} name="propertyType" onChange={handleState}>
             <option disabled>Select Type</option>
             <option value="House">House</option>
             <option value="Land">Land</option>
@@ -115,20 +115,21 @@ const Properties = () => {
             <option value="4">20,000,000-100,000,000</option>
             <option value="5">100,000,000 and Above</option>
           </select>
-          <button className={classes.searchBtn}>
-            <AiOutlineSearch className={classes.searchIcon} onClick={handleSearch} />
+          <button className={classes.searchBtn} onClick={handleSearch}>
+            <AiOutlineSearch className={classes.searchIcon} />
           </button>
         </div>
+  
         {filteredProperties?.length > 0 ? (
-          <>
-          <div className={classes.titles}>
-            <h5>Selected Properties</h5>
-          </div>
           <div className={classes.properties}>
             {filteredProperties.map((property) => (
               <div key={property._id} className={classes.property}>
                 <Link className={classes.imgContainer} to={`/propertyDetail/${property._id}`}>
-                  <img src={`https://real-estate-hw4h.onrender.com/images/${property.images}`} alt=''/>
+                  <img
+                    src={`https://real-estate-hw4h.onrender.com/images/${property.images}`}
+                    alt=""
+                    className={classes.propertyImage}
+                  />
                 </Link>
                 <div className={classes.details}>
                   <div className={classes.price}>
@@ -142,14 +143,15 @@ const Properties = () => {
                     ) : (
                       <span>{property.squareMeter} Square Meters <FaSquareFull className={classes.icon} /></span>
                     )}
-                </div>
-                <div className={classes.description}>{property?.description}</div>
+                  </div>
+                  <div className={classes.description}>{property?.description}</div>
                 </div>
               </div>
             ))}
           </div>
-          </>
-        ) : <h2 className={classes.noProperty}>We have no properties with the specified options</h2>}
+        ) : (
+          <h2 className={classes.noProperty}>We have no properties with the specified options</h2>
+        )}
       </div>
     </div>
   );

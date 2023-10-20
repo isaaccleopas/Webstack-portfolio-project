@@ -64,7 +64,7 @@ const Navbar = () => {
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
-        <Link className={classes.left}>
+        <Link to='/' className={classes.left}>
           ID Properties <BsHouseDoor />
         </Link>
         

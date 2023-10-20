@@ -1,4 +1,4 @@
-import {Route, Routes} from 'react-router-dom'
+import {Navigate, Route, Routes, useLocation} from 'react-router-dom'
 import './App.css'
 import Navbar from './components/navbar/Navbar'
 import Hero from './components/hero/Hero'
@@ -8,8 +8,17 @@ import PropertyDetail from './components/propertyDetail/PropertyDetail'
 import Signup from './components/signup/Signup'
 import Signin from './components/signin/Signin'
 import Stats from './components/stats/Stats'
+import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 function App() {
+  const { user } = useSelector((state) => state.auth)
+  const url = useLocation().pathname
+
+  useEffect(() => {
+    url && window.scrollTo(0, 0)
+  }, [url])
+
   return (
     <div>
       <Routes>
@@ -38,8 +47,8 @@ function App() {
           </>
         } />
 
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/signin' element={<Signin />} />
+        <Route path='/signup' element={!user ? <Signup /> : <Navigate to='/' />} />
+        <Route path='/signin' element={!user ? <Signin /> : <Navigate to='/' />} />
       </Routes>
     </div>
   );

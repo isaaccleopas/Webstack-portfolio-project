@@ -36,6 +36,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
 }
 
 .title {
@@ -275,6 +276,8 @@
     margin: 10px 0;
     background-color: #f7f7f7;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   
   .existingReviews h3 {
