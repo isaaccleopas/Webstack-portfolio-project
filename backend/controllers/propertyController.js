@@ -125,7 +125,7 @@ propertyController.post('/:propertyId/review', verifyToken, async (req, res) => 
 
     const updatedProperty = await property.save();
 
-    return res.status(201).json(updatedProperty);
+    return res.status(200).json(updatedProperty);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

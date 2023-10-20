@@ -49,90 +49,29 @@ const Signup = () => {
   };
 
   return (
-    <>
-        <Navbar/>
-          <div className="signUp container-fluid w-100">
-              <div className="container-lg d-flex flex-column justify-content-center align-items-center">
-                  <h2>Sign Up</h2>
-                  <form className="signUp-form rounded-2 bg-light p-5" onSubmit={handleRegister}>
-                      <div className="mb-3">
-                          <input
-                              type="text"
-                              name="username"
-                              placeholder="username..."
-                              onChange={handleState}
-                              className="form-control"
-                          />
-                          <small className="text-danger error">
-                              {emptyFields && (
-                                  <div className={classes.error}>
-                                      Username required!
-                                  </div>
-                              )}
-                          </small>
-                      </div>
-                      <div className="mb-3">
-                          <input
-                              type="email"
-                              name="email"
-                              placeholder="Email..."
-                              onChange={handleState}
-                              className="form-control"
-                          />
-                          <small className="text-danger error">
-                              {emptyFields && (
-                                  <div className={classes.error}>
-                                      Email address required!
-                                  </div>
-                              )}
-                          </small>
-                      </div>
-                      <div className="mb-3">
-                          <input
-                              type="text"
-                              name="contact"
-                              placeholder="phone"
-                              onChange={handleState}
-                              className="form-control"
-                          />
-                          <small className="text-danger error">
-                              {emptyFields && (
-                                  <div className={classes.error}>
-                                      Phonexxxx required!
-                                  </div>
-                              )}
-                          </small>
-                      </div>
-                      <div className="mb-3">
-                          <input
-                              type="password"
-                              name="pass"
-                              placeholder="Password..."
-                              onChange={handleState}
-                              className="form-control"
-                          />
-                          <small className="text-danger error">
-                              {emptyFields && (
-                                  <div className={classes.error}>
-                                      Password required!
-                                  </div>
-                              )}
-                          </small>
-                      </div>
-                      <button className='btn btn-primary w-100' type="submit">Register</button>
-                      <p className='mt-3'>
-                          Already have an account?{' '}
-                          <Link to="/signin">Sign In</Link>
-                      </p>
-                  </form>
-                  {error && (
-                      <div className={classes.error}>
-                          There was an error signing up! Try again.
-                      </div>
-                  )}
-              </div>
+    <div className={classes.container}>
+      <div className={classes.wrapper}>
+        <h2>Sign Up</h2>
+        <form onSubmit={handleRegister}>
+          <input type="text" name="username" placeholder='Username...' onChange={handleState} />
+          <input type="text" name="email" placeholder='Email...' onChange={handleState} />
+          <input type="tel" name="contact" placeholder='Contact...' onChange={handleState} />
+          <input type="password" name="password" placeholder='Password...' onChange={handleState} />
+          <button type="submit">Register</button>
+          <p>Already have an account? <Link to='/signin'>Login</Link></p>
+        </form>
+        {error && (
+          <div className={classes.error}>
+            There was an error signing up! Try again.
           </div>
-      </>
+        )}
+        {emptyFields && (
+          <div className={classes.error}>
+            Fill all fields!
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 

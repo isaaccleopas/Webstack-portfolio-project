@@ -19,34 +19,7 @@ const Stats = () => {
   }, []);
 
   return (
-      <>
-          <section className="stats bg-light" id="stat">
-              <div className="container py-5">
-                  <div className="stats-content text-center my-3">
-                      <h3 className="display-4">Stats</h3>
-                  </div>
-                  <div className="row m-auto justify-content-center align-items-center">
-                      <div className="col-md-6 col-sm-12 text-center">
-                          <h4 className="display-6 py-5">Properties</h4>
-                          <div className="rounded-circle border border-2 border-primary d-flex justify-content-center align-items-center ">
-                              <p className="num display-4">
-                                  {stats?.propertyCount}
-                              </p>
-                          </div>
-                      </div>
-
-                      <div className="col-md-6 col-sm-12 text-center">
-                          <h4 className="display-6 py-5">Users</h4>
-                          <div className="rounded-circle border border-2 border-primary d-flex justify-content-center align-items-center">
-                              <p className="num display-4">
-                                  {stats?.userCount}
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </section>
-          {/* <div className={classes.container}>
+          <div className={classes.container}>
               <div className={classes.wrapper}>
                   <div className={classes.titles}>
                       <h4>Site Statistics</h4>
@@ -60,8 +33,7 @@ const Stats = () => {
                       </div>
                   </div>
               </div>
-          </div> */}
-      </>
+          </div>
   );
 };
 
